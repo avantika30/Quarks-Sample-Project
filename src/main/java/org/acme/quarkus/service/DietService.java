@@ -22,7 +22,7 @@ public class DietService {
 		
 		Users user = entityManager.find(Users.class, userid);
 		boolean isUserFoodPresent = false;
-		if(user != null) {
+		if(user != null && amountOftheItem > 0 && !(nameOftheFood.isEmpty()) ) {
 			
 			UserFood userFood = new UserFood(user.getId(), nameOftheFood, new java.sql.Timestamp(new java.util.Date().getTime()) , amountOftheItem);
 			entityManager.persist(userFood);
@@ -38,7 +38,7 @@ public class DietService {
 		Users user = entityManager.find(Users.class, userid);
 		boolean isFoodRemoved = false ;
 		
-		if(user != null) {
+		if(user != null && !(foodName.isEmpty())) {
 			Query query = entityManager.createQuery(" from UserFood a where a.name = ?1");
 			query.setParameter(1, foodName); 
 			

@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 import org.acme.quarkus.service.DietService;
 
 @Path("/dietplan")
-public class HelloResource {
+public class DietResource {
 	
 	@Inject
 	DietService dietService ;
